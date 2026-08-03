@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TURON — Юридические услуги в Ташкенте</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#15171C;
+  --ink-2:#1E222A;
+  --ink-3:#2A2F39;
+  --paper:#F2F0EC;
+  --paper-2:#E8E5DF;
+  --oxblood:#6E1F2A;
+  --oxblood-hi:#8E2E39;
+  --stone:#807D75;
+  --stone-2:#A8A49B;
+  --rule:#D6D2CA;
+  --rule-dark:#343A44;
+  --maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'IBM Plex Sans',system-ui,sans-serif;
+  font-size:16.5px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:'Bodoni Moda',Georgia,serif;font-weight:500;line-height:1.14;letter-spacing:-0.01em}
+h1{font-size:clamp(34px,5.2vw,62px)}
+h2{font-size:clamp(26px,3.4vw,40px)}
+h3{font-size:clamp(19px,2vw,23px)}
+p{max-width:72ch}
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+
+/* ---------- utility type ---------- */
+.mono{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
+.eyebrow{color:var(--oxblood);display:inline-flex;align-items:center;gap:9px;margin-bottom:20px}
+.eyebrow::before{content:'';width:26px;height:1px;background:var(--oxblood);display:block}
+.on-dark .eyebrow{color:#C98B92}
+.on-dark .eyebrow::before{background:#C98B92}
+.lead{font-size:clamp(17px,1.5vw,19.5px);color:#3D414A;line-height:1.62}
+.on-dark .lead{color:#B9BDC6}
+.muted{color:var(--stone)}
+.on-dark{color:#EDEBE7}
+.on-dark h1,.on-dark h2,.on-dark h3{color:#F6F4F0}
+
+/* ---------- nav ---------- */
+header{position:sticky;top:0;z-index:60;background:rgba(242,240,236,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.navbar{max-width:var(--maxw);margin:0 auto;padding:0 26px;display:flex;align-items:center;gap:26px;height:66px}
+.brand{display:flex;flex-direction:column;line-height:1.05;cursor:pointer;background:none;border:0;text-align:left;font-family:'Bodoni Moda',serif}
+.brand b{font-size:19px;font-weight:600;letter-spacing:.16em}
+.brand span{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--oxblood);margin-top:3px}
+nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+nav button{
+  background:none;border:0;padding:8px 12px;cursor:pointer;color:#4A4E57;
+  font-family:inherit;font-size:14.5px;border-bottom:2px solid transparent;transition:.18s;
+}
+nav button:hover{color:var(--oxblood)}
+nav button.active{color:var(--ink);border-bottom-color:var(--oxblood)}
+.navphone{font-family:'IBM Plex Mono',monospace;font-size:13px;white-space:nowrap;text-decoration:none;border:1px solid var(--rule);padding:8px 13px;border-radius:2px;transition:.18s}
+.navphone:hover{border-color:var(--oxblood);color:var(--oxblood)}
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--rule);padding:8px 12px;font-family:'IBM Plex Mono',monospace;font-size:12px;cursor:pointer;border-radius:2px}
+
+/* ---------- pages ---------- */
+.page{display:none}
+.page.active{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+section{padding:88px 0;border-bottom:1px solid var(--rule)}
+section.dark{background:var(--ink);border-bottom-color:var(--rule-dark)}
+section.tint{background:var(--paper-2)}
+section.tight{padding:62px 0}
+
+/* section marker § */
+.smark{display:flex;align-items:baseline;gap:16px;margin-bottom:34px}
+.smark .sec-no{font-family:'Bodoni Moda',serif;font-size:15px;color:var(--oxblood);border:1px solid var(--rule);padding:3px 10px;border-radius:2px;white-space:nowrap}
+.on-dark .smark .sec-no{color:#C98B92;border-color:var(--rule-dark)}
+
+/* ---------- hero ---------- */
+.hero{background:var(--ink);color:#EDEBE7;padding:0;border-bottom:0;position:relative;overflow:hidden}
+.hero-grid{max-width:var(--maxw);margin:0 auto;padding:84px 26px 0;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:end}
+.hero h1{color:#F7F5F1;margin-bottom:26px}
+.hero h1 em{font-style:italic;color:#C98B92}
+.hero .lead{max-width:56ch}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin:34px 0 76px}
+.hero-portrait{
+  aspect-ratio:3/3.6;border:1px solid var(--rule-dark);background:
+  repeating-linear-gradient(135deg,#1B1F27 0 12px,#1E222A 12px 24px);
+  display:flex;align-items:flex-end;padding:22px;margin-bottom:76px;
+}
+.hero-portrait span{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#6C727D;text-transform:uppercase}
+.hero-strip{border-top:1px solid var(--rule-dark);background:#101318}
+.hero-strip-in{max-width:var(--maxw);margin:0 auto;padding:0 26px;display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:26px 24px 26px 0;border-right:1px solid var(--rule-dark)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:'Bodoni Moda',serif;font-size:34px;color:#F7F5F1;line-height:1}
+.stat small{display:block;margin-top:7px;font-size:13px;color:#8A9099;line-height:1.4}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;padding:14px 24px;
+  background:var(--oxblood);color:#fff;border:1px solid var(--oxblood);
+  font-family:inherit;font-size:15px;cursor:pointer;border-radius:2px;
+  text-decoration:none;transition:.2s;
+}
+.btn:hover{background:var(--oxblood-hi);border-color:var(--oxblood-hi)}
+.btn.ghost{background:transparent;color:inherit;border-color:currentColor;opacity:.85}
+.btn.ghost:hover{background:rgba(255,255,255,.07);opacity:1}
+.page:not(.dark) .btn.ghost{color:var(--ink);border-color:var(--rule)}
+.btn.ghost:hover{border-color:var(--oxblood);color:var(--oxblood)}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--oxblood);outline-offset:3px}
+
+/* ---------- grids & cards ---------- */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule)}
+.g3>div{background:var(--paper);padding:30px 26px}
+section.tint .g3>div{background:var(--paper-2)}
+.on-dark .g3{background:var(--rule-dark)}
+.on-dark .g3>div{background:var(--ink)}
+
+.svc{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.svc article{background:var(--paper);padding:34px 30px;transition:.22s}
+.svc article:hover{background:#fff}
+.svc .idx{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--oxblood);display:block;margin-bottom:14px}
+.svc h3{margin-bottom:12px}
+.svc p{font-size:15.3px;color:#4B4F58}
+.svc ul{margin-top:14px;list-style:none}
+.svc li{font-size:14.6px;color:#4B4F58;padding-left:16px;position:relative;margin-bottom:5px}
+.svc li::before{content:'—';position:absolute;left:0;color:var(--oxblood)}
+
+/* detailed service blocks */
+.sdetail{border-top:1px solid var(--rule);padding:44px 0;display:grid;grid-template-columns:.32fr .68fr;gap:44px}
+.sdetail:first-of-type{border-top:0}
+.sdetail .snum{font-family:'Bodoni Moda',serif;font-size:44px;color:var(--rule);line-height:1}
+.sdetail h3{margin-bottom:14px}
+.cols2{columns:2;column-gap:34px;margin-top:18px}
+.cols2 li{break-inside:avoid;font-size:15px;color:#4B4F58;list-style:none;padding-left:16px;position:relative;margin-bottom:8px}
+.cols2 li::before{content:'·';position:absolute;left:2px;color:var(--oxblood);font-weight:700}
+
+/* pull quote / signature */
+.pull{border-left:3px solid var(--oxblood);padding:6px 0 6px 26px;margin:30px 0;font-family:'Bodoni Moda',serif;font-size:clamp(20px,2.4vw,27px);font-style:italic;line-height:1.35}
+.on-dark .pull{border-left-color:#C98B92}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.steps>div{background:var(--paper);padding:28px 24px}
+.steps .st{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--oxblood);display:block;margin-bottom:12px}
+.steps h4{font-size:18px;margin-bottom:9px}
+.steps p{font-size:14.6px;color:#4B4F58}
+
+/* team */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.tcard .ph{aspect-ratio:4/4.6;background:repeating-linear-gradient(135deg,#E6E3DC 0 12px,#EDEAE4 12px 24px);border:1px solid var(--rule);display:flex;align-items:flex-end;padding:16px}
+.tcard .ph span{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;color:var(--stone-2);text-transform:uppercase}
+.tcard h4{font-family:'Bodoni Moda',serif;font-size:21px;margin:16px 0 4px}
+.tcard .role{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--oxblood);margin-bottom:10px}
+.tcard p{font-size:14.6px;color:#4B4F58}
+
+/* confidentiality seal */
+.conf{display:grid;grid-template-columns:.42fr .58fr;gap:52px;align-items:center}
+.seal{border:1px solid var(--rule-dark);padding:34px;text-align:center}
+.seal .ring{width:150px;height:150px;border:1px solid #C98B92;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 18px}
+.seal .ring b{font-family:'Bodoni Moda',serif;font-size:30px;color:#F6F4F0;line-height:1}
+.seal .ring small{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#C98B92;margin-top:6px}
+.seal p{font-size:13.5px;color:#9AA0A9;margin:0 auto}
+
+/* faq */
+.faq{border-top:1px solid var(--rule)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;padding:20px 40px 20px 0;font-size:17px;position:relative;list-style:none;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';position:absolute;right:6px;top:17px;font-size:22px;color:var(--oxblood);font-weight:300}
+.faq details[open] summary::after{content:'–'}
+.faq .ans{padding:0 0 22px;color:#4B4F58;font-size:15.4px}
+
+/* notes / materials */
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.notes>a{background:var(--paper);padding:26px 24px;text-decoration:none;display:block;transition:.2s}
+.notes>a:hover{background:#fff}
+.notes .dt{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--stone);display:block;margin-bottom:12px}
+.notes h4{font-size:18px;line-height:1.25;margin-bottom:8px}
+.notes p{font-size:14.4px;color:#4B4F58}
+
+/* form */
+.form-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+form{display:grid;gap:14px}
+label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#9AA0A9;display:block;margin-bottom:7px}
+input,textarea,select{
+  width:100%;padding:13px 15px;background:#1B1F27;border:1px solid var(--rule-dark);
+  color:#EDEBE7;font-family:inherit;font-size:15px;border-radius:2px;
+}
+input::placeholder,textarea::placeholder{color:#666C76}
+textarea{min-height:96px;resize:vertical}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:12.8px;color:#8A9099}
+.consent input{width:16px;height:16px;flex:0 0 16px;margin-top:3px}
+.contact-list{list-style:none}
+.contact-list li{border-top:1px solid var(--rule-dark);padding:16px 0}
+.contact-list .k{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8A9099;display:block;margin-bottom:5px}
+.contact-list .v{font-size:17px;color:#F1EFEB;text-decoration:none}
+
+/* footer */
+footer{background:#101318;color:#8A9099;padding:52px 0 30px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:34px}
+footer h5{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#EDEBE7;margin-bottom:14px;font-weight:500}
+footer a,footer li{font-size:14.4px;list-style:none;color:#8A9099;text-decoration:none;display:block;margin-bottom:8px}
+footer a:hover{color:#C98B92}
+.fbottom{border-top:1px solid var(--rule-dark);margin-top:38px;padding-top:20px;font-size:12.6px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* annotation flags */
+.flag{display:none}
+body.flags .flag{
+  display:block;background:#FFF6D6;border-left:3px solid #D6B23C;color:#5A4A12;
+  font-size:12.8px;line-height:1.5;padding:9px 13px;margin-top:12px;font-family:'IBM Plex Sans',sans-serif;
+  max-width:none;
+}
+body.flags .flag b{color:#3E340B}
+.flagbar{position:fixed;right:16px;bottom:16px;z-index:80}
+.flagbar button{
+  background:var(--ink);color:#EDEBE7;border:1px solid var(--rule-dark);padding:10px 15px;
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;border-radius:2px;box-shadow:0 6px 22px rgba(0,0,0,.22)
+}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  .page.active{animation:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- responsive ---------- */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:34px;padding-top:56px}
+  .hero-portrait{display:none}
+  .hero-cta{margin-bottom:48px}
+  .hero-strip-in{grid-template-columns:1fr 1fr}
+  .stat{border-right:0;border-bottom:1px solid var(--rule-dark);padding-right:0}
+  .stat:nth-child(odd){border-right:1px solid var(--rule-dark);padding-right:20px}
+  .g2,.conf,.form-grid,.sdetail{grid-template-columns:1fr;gap:28px}
+  .g3,.svc,.steps,.notes,.team{grid-template-columns:1fr 1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .cols2{columns:1}
+}
+@media(max-width:660px){
+  section{padding:60px 0}
+  nav{display:none;position:fixed;top:66px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--rule);flex-direction:column;padding:10px 18px 18px;gap:0;margin:0}
+  nav.open{display:flex}
+  nav button{text-align:left;padding:13px 0;border-bottom:1px solid var(--rule);width:100%}
+  nav button.active{border-bottom-color:var(--oxblood)}
+  .burger{display:block}
+  .navphone{display:none}
+  .g3,.svc,.steps,.notes,.team{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr}
+  .smark{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <button class="brand" data-go="home">
+      <b>TURON</b>
+      <span>Юридические услуги</span>
+    </button>
+    <button class="burger" id="burger">Меню</button>
+    <nav id="nav">
+      <button data-go="home" class="active">Главная</button>
+      <button data-go="services">Услуги</button>
+      <button data-go="about">О компании</button>
+      <button data-go="team">Команда</button>
+      <button data-go="contacts">Контакты</button>
+    </nav>
+    <a class="navphone" href="tel:+998712001111">+998 71 200 11 11</a>
+  </div>
+</header>
+
+<!-- ==================== ГЛАВНАЯ ==================== -->
+<div class="page active" id="home">
+
+  <section class="hero on-dark">
+    <div class="hero-grid">
+      <div>
+        <div class="mono eyebrow">Юридические услуги · Ташкент</div>
+        <h1>Право и налоги —<br>в <em>одной команде</em></h1>
+        <p class="lead">Мы сопровождаем бизнес там, где юридический вопрос почти всегда оказывается ещё и налоговым: сделки и договоры, корпоративные решения, проверки, споры с государственными органами и защита в суде.</p>
+        <div class="hero-cta">
+          <button class="btn" data-go="contacts">Получить консультацию</button>
+          <button class="btn ghost" data-go="services">Направления работы</button>
+        </div>
+      </div>
+      <div class="hero-portrait"><span>Место под фото: команда / офис / партнёр</span></div>
+    </div>
+    <div class="hero-strip">
+      <div class="hero-strip-in">
+        <div class="stat"><b>30+</b><small>лет практики в налоговом и юридическом консультировании</small></div>
+        <div class="stat"><b>2</b><small>направления в одном договоре: юрист и налоговый консультант</small></div>
+        <div class="stat"><b>100%</b><small>конфиденциальность, закреплённая законом</small></div>
+        <div class="stat"><b>РУз</b><small>работаем по всей республике, включая регионы</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="smark"><span class="sec-no">§ 01</span><div>
+        <div class="mono eyebrow">Когда мы нужны</div>
+        <h2>Большинство проблем бизнеса<br>начинаются задолго до суда</h2>
+      </div></div>
+      <p class="lead" style="margin-bottom:34px">Их можно было предотвратить одной формулировкой в договоре, одним вовремя поданным возражением, одним решением, принятым с учётом налоговых последствий. Мы подключаемся и до, и после — но результат всегда дешевле, когда раньше.</p>
+      <div class="g3">
+        <div>
+          <h3>Договор подписан «как обычно»</h3>
+          <p class="muted" style="font-size:15.2px">Шаблон из интернета, устные договорённости, отсутствие ответственности сторон. Проблема проявляется через год — когда контрагент перестаёт платить.</p>
+        </div>
+        <div>
+          <h3>Пришло уведомление о проверке</h3>
+          <p class="muted" style="font-size:15.2px">Документы собираются в спешке, объяснения даются на эмоциях. Позиция компании формируется уже в акте проверки — не в вашу пользу.</p>
+        </div>
+        <div>
+          <h3>Спор перешёл в уголовную плоскость</h3>
+          <p class="muted" style="font-size:15.2px">Хозяйственный конфликт или налоговое доначисление превращаются в дело, где на кону не только деньги компании, но и свобода руководителя.</p>
+        </div>
+        <div>
+          <h3>Госорган принял решение против вас</h3>
+          <p class="muted" style="font-size:15.2px">Предписание, штраф, отказ в разрешении. Срок обжалования ограничен, и его пропуск закрывает дорогу к пересмотру.</p>
+        </div>
+        <div>
+          <h3>Бизнес вырос, юриста нет</h3>
+          <p class="muted" style="font-size:15.2px">Договоры подписывает бухгалтер, кадровые документы ведутся «по памяти», корпоративные решения не оформляются протоколами.</p>
+        </div>
+        <div>
+          <h3>Заходит иностранный инвестор</h3>
+          <p class="muted" style="font-size:15.2px">Структура сделки, аккредитация представительства, разрешения на иностранных сотрудников, валютные и налоговые последствия входа.</p>
+        </div>
+      </div>
+      <div class="flag"><b>Проверить у клиента:</b> список ситуаций написан на основе типичных запросов рынка (по материалам сайтов конкурентов и общей практики РУз). Клиент может убрать лишние и добавить свои реальные частые кейсы.</div>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <div class="smark"><span class="sec-no">§ 02</span><div>
+        <div class="mono eyebrow">Направления работы</div>
+        <h2>Что мы делаем</h2>
+      </div></div>
+      <div class="svc">
+        <article>
+          <span class="idx">01 / Сопровождение</span>
+          <h3>Юридическое обслуживание бизнеса</h3>
+          <p>Внешний юридический отдел компании: постоянная поддержка вместо разовых обращений.</p>
+          <ul>
+            <li>Консультации по текущим вопросам</li>
+            <li>Правовая экспертиза решений руководства</li>
+            <li>Подготовка и ведение документооборота</li>
+            <li>Взаимодействие с государственными органами</li>
+          </ul>
+        </article>
+        <article>
+          <span class="idx">02 / Договоры</span>
+          <h3>Договорная работа и сделки</h3>
+          <p>Договор — это распределение рисков и налоговых последствий, а не формальность.</p>
+          <ul>
+            <li>Разработка договоров под вашу деятельность</li>
+            <li>Правовая экспертиза договоров контрагентов</li>
+            <li>Проверка контрагента до подписания</li>
+            <li>Претензионная работа и взыскание долгов</li>
+          </ul>
+        </article>
+        <article>
+          <span class="idx">03 / Корпоративное право</span>
+          <h3>Структура и жизнь компании</h3>
+          <p>От регистрации до реорганизации — с учётом налоговой стороны каждого шага.</p>
+          <ul>
+            <li>Регистрация ООО, ЧП, СП, ИП</li>
+            <li>Изменение уставного фонда и состава учредителей</li>
+            <li>Реорганизация, выделение, присоединение</li>
+            <li>Ликвидация предприятия</li>
+          </ul>
+        </article>
+        <article>
+          <span class="idx">04 / Налоговые споры</span>
+          <h3>Проверки и налоговые споры</h3>
+          <p>Направление, в котором наше происхождение из налогового консультирования даёт прямое преимущество.</p>
+          <ul>
+            <li>Сопровождение налоговых проверок</li>
+            <li>Возражения на акты проверок</li>
+            <li>Обжалование доначислений и штрафов</li>
+            <li>Защита в суде по налоговым спорам</li>
+          </ul>
+        </article>
+        <article>
+          <span class="idx">05 / Суд</span>
+          <h3>Представительство в судах</h3>
+          <p>Экономические, гражданские и административные дела — на всех инстанциях.</p>
+          <ul>
+            <li>Досудебное урегулирование и переговоры</li>
+            <li>Подготовка позиции и доказательной базы</li>
+            <li>Ведение дела в первой инстанции и апелляции</li>
+            <li>Исполнение судебных решений</li>
+          </ul>
+        </article>
+        <article>
+          <span class="idx">06 / Защита</span>
+          <h3>Защита по уголовным делам</h3>
+          <p>Экономические и налоговые составы, где ошибка на первом допросе определяет весь исход.</p>
+          <ul>
+            <li>Защита на стадии проверки и следствия</li>
+            <li>Присутствие адвоката при допросах</li>
+            <li>Обжалование мер процессуального принуждения</li>
+            <li>Защита в суде и в апелляции</li>
+          </ul>
+        </article>
+      </div>
+      <div style="margin-top:30px"><button class="btn ghost" data-go="services">Все направления и подробности</button></div>
+    </div>
+  </section>
+
+  <section class="dark on-dark">
+    <div class="wrap">
+      <div class="smark"><span class="sec-no">§ 03</span><div>
+        <div class="mono eyebrow">Наше отличие</div>
+        <h2>Мы знаем систему изнутри</h2>
+      </div></div>
+      <div class="g2">
+        <div>
+          <p class="lead">Мы понимаем, как мыслят и действуют проверяющие: на что они смотрят в первую очередь, какие документы вызывают вопросы, какие решения принимаются в спорных ситуациях. Это знание невозможно получить из кодекса — оно приходит только из практики по обе стороны стола.</p>
+          <div class="pull">Мы предлагаем не теоретические, а проверенные на практике решения — учитывающие и букву закона, и реальную логику его применения.</div>
+        </div>
+        <div>
+          <p class="lead" style="margin-bottom:22px">Обычная юридическая фирма хорошо знает право, но не всегда просчитывает налоговые последствия сделки. Аудитор разбирается в учёте, но чаще находит ошибки уже в ходе проверки. Бухгалтер отразит операцию в проводках, но не защитит вас в суде.</p>
+          <p class="lead">Мы выросли из налогового консультирования — поэтому юрист, налоговый консультант и аудитор здесь работают над вашим вопросом вместе, а не пересылают его друг другу.</p>
+          <div class="flag"><b>Источник:</b> идея и часть формулировок взяты из ваших материалов «Главная страница» и «Опыт работы» по налогово-аудиторскому сайту. Требует подтверждения: действительно ли можно публично заявлять об опыте работы в проверяющих органах.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="smark"><span class="sec-no">§ 04</span><div>
+        <div class="mono eyebrow">Порядок работы</div>
+        <h2>Как строится сотрудничество</h2>
+      </div></div>
+      <div class="steps">
+        <div>
+          <span class="st">Шаг 01</span>
+          <h4>Обращение</h4>
+          <p>Вы описываете ситуацию по телефону или в форме. Первичный разбор — чтобы понять, есть ли вообще правовая проблема и насколько она срочная.</p>
+        </div>
+        <div>
+          <span class="st">Шаг 02</span>
+          <h4>Анализ</h4>
+          <p>Изучаем документы, определяем правовые и налоговые риски, оцениваем перспективу. Говорим прямо, если перспективы нет.</p>
+        </div>
+        <div>
+          <span class="st">Шаг 03</span>
+          <h4>Стратегия и договор</h4>
+          <p>Предлагаем план действий со сроками и объёмом работ. Условия, права и обязанности сторон фиксируются в договоре до начала работы.</p>
+        </div>
+        <div>
+          <span class="st">Шаг 04</span>
+          <h4>Сопровождение</h4>
+          <p>Ведём дело до результата: документы, переговоры, представительство. Вы получаете информацию о каждом этапе, а не узнаёте новости постфактум.</p>
+        </div>
+      </div>
+      <div class="flag"><b>Уточнить:</b> бесплатна ли первичная консультация и сколько она длится. У конкурентов это ключевой элемент — стоит определиться.</div>
+    </div>
+  </section>
+
+  <section class="dark on-dark">
+    <div class="wrap conf">
+      <div class="seal">
+        <div class="ring"><b>ст. 8</b><small>ЗРУ-787</small></div>
+        <p>Закон Республики Узбекистан «О деятельности по налоговому консультированию» № ЗРУ-787 от 4 августа 2022 года</p>
+      </div>
+      <div>
+        <div class="mono eyebrow">Конфиденциальность</div>
+        <h2>Мы не рассказываем о клиентах — в том числе о вас</h2>
+        <p class="lead" style="margin-top:20px">Информация, которую вы нам доверяете, используется только для оказания услуг и не передаётся третьим лицам без вашего согласия. Единственное исключение — прямые требования закона. Других исключений не существует.</p>
+        <p class="lead" style="margin-top:16px">Именно поэтому на этом сайте нет ни одного имени клиента, ни одного логотипа, ни одного разобранного дела. Профессиональная тайна для нас — не пункт договора, а условие работы: и адвокатская тайна, и тайна налогового консультанта защищены законом.</p>
+        <div class="pull">Если мы так бережём чужие данные — ваши будут в безопасности тоже.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="smark"><span class="sec-no">§ 05</span><div>
+        <div class="mono eyebrow">Материалы</div>
+        <h2>Разбираем изменения<br>раньше, чем они коснутся вас</h2>
+      </div></div>
+      <div class="notes">
+        <a href="#" onclick="return false">
+          <span class="dt">Раздел в разработке</span>
+          <h4>Налоговая проверка: что делать в первые 48 часов</h4>
+          <p>Какие документы подготовить, кто и что имеет право требовать, какие объяснения давать не следует.</p>
+        </a>
+        <a href="#" onclick="return false">
+          <span class="dt">Раздел в разработке</span>
+          <h4>Договор с контрагентом: пункты, из-за которых проигрывают суды</h4>
+          <p>Формулировки, которые кажутся техническими, но решают исход спора о взыскании.</p>
+        </a>
+        <a href="#" onclick="return false">
+          <span class="dt">Раздел в разработке</span>
+          <h4>Когда налоговый спор становится уголовным делом</h4>
+          <p>Граница между доначислением и составом преступления — и как её не перейти.</p>
+        </a>
+      </div>
+      <div class="flag"><b>Предложение:</b> раздел «Материалы / Блог» — главный источник органического трафика у конкурентов (Sher Legal, LegalAct ведут блог и новости). Здесь пока три примерных заголовка. Нужно решить, готов ли клиент писать статьи.</div>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <div class="smark"><span class="sec-no">§ 06</span><div>
+        <div class="mono eyebrow">Частые вопросы</div>
+        <h2>Что спрашивают до начала работы</h2>
+      </div></div>
+      <div class="faq">
+        <details open>
+          <summary>Чем вы отличаетесь от обычной юридической фирмы?</summary>
+          <div class="ans">Мы пришли в право со стороны налогов. Для нас договор, сделка или корпоративное решение — это одновременно правовая и налоговая конструкция. Юрист, налоговый консультант и аудитор работают над вашим вопросом в одной команде, поэтому вы не получаете совет, который выигрывает в суде и проигрывает при проверке.</div>
+        </details>
+        <details>
+          <summary>Вы работаете только с компаниями или с физическими лицами тоже?</summary>
+          <div class="ans">Основное направление — бизнес: компании, их учредители и руководители. При этом мы ведём дела физических лиц, если вопрос связан с предпринимательской деятельностью, имуществом, налогами или защитой по экономическим и налоговым составам.</div>
+        </details>
+        <details>
+          <summary>Можно ли передать вам юридическую функцию полностью, без юриста в штате?</summary>
+          <div class="ans">Да, это формат юридического аутсорсинга. Мы берём на себя договорную работу, кадровые и корпоративные документы, переписку с государственными органами и представительство в спорах. Компания получает команду специалистов по цене, сопоставимой с содержанием одного сотрудника.</div>
+        </details>
+        <details>
+          <summary>Налоговая уже назначила проверку. Не поздно обращаться?</summary>
+          <div class="ans">Не поздно. Более того, это один из самых важных моментов для подключения юриста: позиция компании формируется именно во время проверки, а не после получения акта. Мы помогаем подготовить документы, сопровождаем взаимодействие с проверяющими, готовим возражения на акт и при необходимости обжалуем результаты.</div>
+        </details>
+        <details>
+          <summary>Вы ведёте защиту по уголовным делам?</summary>
+          <div class="ans">Да. Отдельное направление нашей работы — защита по делам, связанным с экономической и налоговой сферой. Мы выстраиваем линию защиты с самого начала, когда от первых действий зависит не только репутация компании, но и свобода человека.</div>
+        </details>
+        <details>
+          <summary>Почему на сайте нет отзывов, кейсов и логотипов клиентов?</summary>
+          <div class="ans">Потому что мы не имеем права их публиковать и не считаем это правильным. Адвокатская тайна и тайна налогового консультанта защищены законом Республики Узбекистан. Отсутствие чужих имён на сайте — это гарантия того, что и вашего имени здесь никогда не появится.</div>
+        </details>
+        <details>
+          <summary>Как проходит первая консультация?</summary>
+          <div class="ans">Вы описываете ситуацию, мы задаём уточняющие вопросы и говорим, что можно сделать, в какие сроки и какой результат реалистичен. Если правовой перспективы нет — скажем прямо, а не будем продавать процесс.</div>
+        </details>
+        <details>
+          <summary>Как определяется стоимость работы?</summary>
+          <div class="ans">Стоимость зависит от направления, объёма и сложности дела. Мы определяем её после ознакомления с ситуацией и фиксируем в договоре до начала работы — дополнительных платежей по ходу дела не возникает.</div>
+        </details>
+        <details>
+          <summary>Вы работаете с иностранными компаниями?</summary>
+          <div class="ans">Да. Сопровождаем вход иностранного бизнеса в Узбекистан: выбор формы присутствия, регистрация и аккредитация, разрешения на привлечение иностранной рабочей силы, валютные и налоговые вопросы, договорная работа с местными контрагентами.</div>
+        </details>
+        <details>
+          <summary>Вы работаете только в Ташкенте?</summary>
+          <div class="ans">Офис находится в Ташкенте, но мы ведём дела по всей республике. Часть работы проходит дистанционно, выезд специалиста в регион согласовывается отдельно.</div>
+        </details>
+      </div>
+      <div class="flag"><b>Проверить у клиента:</b> ответы написаны нами на основе рыночной практики. Особенно требуют подтверждения пункты о бесплатной консультации, аутсорсинге и уголовной защите.</div>
+    </div>
+  </section>
+
+  <section class="dark on-dark" id="cta-home">
+    <div class="wrap">
+      <div class="g2" style="align-items:center">
+        <div>
+          <h2>Опишите ситуацию —<br>скажем, есть ли решение</h2>
+          <p class="lead" style="margin-top:18px">Первый разговор ни к чему не обязывает. Мы либо предложим план действий, либо честно скажем, что правовой перспективы нет.</p>
+        </div>
+        <div><button class="btn" data-go="contacts">Перейти к форме обращения</button></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== УСЛУГИ ==================== -->
+<div class="page" id="services">
+  <section class="dark on-dark tight">
+    <div class="wrap">
+      <div class="mono eyebrow">Направления</div>
+      <h1 style="font-size:clamp(30px,4.4vw,50px)">Юридические услуги</h1>
+      <p class="lead" style="margin-top:20px;max-width:62ch">Ниже — направления, по которым мы работаем. В каждом из них правовая сторона рассматривается вместе с налоговой: это позволяет видеть последствия решения не только в суде, но и в отчётности.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+
+      <div class="sdetail">
+        <div><div class="snum">01</div><div class="mono muted" style="margin-top:10px">Постоянная поддержка</div></div>
+        <div>
+          <h3>Юридическое обслуживание бизнеса</h3>
+          <p class="lead">Компания получает юридическую функцию целиком, без найма штатного юриста. Мы включаемся в текущие процессы: согласовываем документы, отвечаем на вопросы руководителей, ведём переписку с государственными органами и заранее предупреждаем о рисках.</p>
+          <ul class="cols2">
+            <li>Устные и письменные консультации по текущей деятельности</li>
+            <li>Правовая экспертиза управленческих решений</li>
+            <li>Разработка внутренних положений и приказов</li>
+            <li>Подготовка ответов на запросы госорганов</li>
+            <li>Юридическое сопровождение закупок и тендеров</li>
+            <li>Правовой аудит документооборота компании</li>
+            <li>Сопровождение кадрового делопроизводства</li>
+            <li>Абонентское обслуживание с фиксированным объёмом</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sdetail">
+        <div><div class="snum">02</div><div class="mono muted" style="margin-top:10px">Сделки</div></div>
+        <div>
+          <h3>Договорная работа</h3>
+          <p class="lead">Большая часть споров рождается на этапе подписания. Мы составляем и проверяем договоры так, чтобы риск был распределён в вашу пользу, а налоговые последствия сделки были понятны заранее.</p>
+          <ul class="cols2">
+            <li>Разработка договоров под конкретную деятельность</li>
+            <li>Экспертиза договоров, предложенных контрагентом</li>
+            <li>Протоколы разногласий и переговоры по условиям</li>
+            <li>Проверка контрагента перед сделкой</li>
+            <li>Договоры поставки, подряда, оказания услуг, аренды</li>
+            <li>Внешнеэкономические контракты и валютные условия</li>
+            <li>Претензионная работа и досудебное взыскание</li>
+            <li>Сопровождение расторжения и изменения договоров</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sdetail">
+        <div><div class="snum">03</div><div class="mono muted" style="margin-top:10px">Корпоративное право</div></div>
+        <div>
+          <h3>Создание, изменение и закрытие компании</h3>
+          <p class="lead">Юридические действия с компанией почти всегда имеют налоговую цену. Мы сопровождаем их так, чтобы выбранная форма и структура работали на бизнес, а не создавали обязательства на будущее.</p>
+          <ul class="cols2">
+            <li>Регистрация ООО, ЧП, семейного предприятия, ИП</li>
+            <li>Регистрация предприятий с иностранными инвестициями</li>
+            <li>Аккредитация представительств и открытие филиалов</li>
+            <li>Изменение уставного фонда, состава участников, долей</li>
+            <li>Смена руководителя, юридического адреса, видов деятельности</li>
+            <li>Реорганизация: слияние, присоединение, разделение, выделение</li>
+            <li>Разработка уставов, протоколов, корпоративных решений</li>
+            <li>Ликвидация предприятия и сопровождение до исключения из реестра</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sdetail">
+        <div><div class="snum">04</div><div class="mono muted" style="margin-top:10px">Наша сильная сторона</div></div>
+        <div>
+          <h3>Налоговые проверки и налоговые споры</h3>
+          <p class="lead">Направление, ради которого к нам чаще всего приходят. Мы участвуем в процессе на стороне компании с первого дня проверки — тогда, когда позиция ещё формируется и её можно выстроить правильно.</p>
+          <ul class="cols2">
+            <li>Подготовка компании к плановой проверке</li>
+            <li>Сопровождение камеральных и выездных проверок</li>
+            <li>Правовая оценка требований проверяющих</li>
+            <li>Возражения на акт налоговой проверки</li>
+            <li>Обжалование решений в вышестоящий орган</li>
+            <li>Судебное обжалование доначислений, пени и штрафов</li>
+            <li>Споры о применении налоговых льгот и режимов</li>
+            <li>Правовая защита при блокировке счетов и приостановлении операций</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sdetail">
+        <div><div class="snum">05</div><div class="mono muted" style="margin-top:10px">Суд</div></div>
+        <div>
+          <h3>Представительство в судах</h3>
+          <p class="lead">Ведём экономические, гражданские и административные дела на всех стадиях — от досудебной претензии до исполнения решения. До суда доводим тогда, когда это действительно выгоднее переговоров.</p>
+          <ul class="cols2">
+            <li>Взыскание задолженности и неустойки</li>
+            <li>Споры по договорам поставки, подряда, услуг</li>
+            <li>Корпоративные споры между участниками</li>
+            <li>Споры о праве собственности и имуществе</li>
+            <li>Обжалование решений государственных органов</li>
+            <li>Подготовка исков, отзывов, апелляционных жалоб</li>
+            <li>Обеспечительные меры и защита активов</li>
+            <li>Сопровождение исполнительного производства</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sdetail">
+        <div><div class="snum">06</div><div class="mono muted" style="margin-top:10px">Адвокатура</div></div>
+        <div>
+          <h3>Защита по уголовным делам</h3>
+          <p class="lead">Отдельное направление работы — дела экономической и налоговой направленности. Мы выстраиваем линию защиты с самого начала: с доследственной проверки, когда от первых действий зависит, появится ли дело вообще.</p>
+          <ul class="cols2">
+            <li>Защита на стадии доследственной проверки</li>
+            <li>Участие адвоката при допросах и следственных действиях</li>
+            <li>Защита руководителей и должностных лиц компании</li>
+            <li>Дела о налоговых и экономических преступлениях</li>
+            <li>Обжалование меры пресечения</li>
+            <li>Сбор и представление доказательств защиты</li>
+            <li>Защита в суде первой инстанции и в апелляции</li>
+            <li>Правовая оценка рисков до возбуждения дела</li>
+          </ul>
+          <div class="flag"><b>Проверить:</b> в ваших материалах указано, что в практике есть случаи прекращения уголовных дел и оправдательных приговоров. Это сильный аргумент — уточните у клиента, можно ли его публиковать и в какой формулировке.</div>
+        </div>
+      </div>
+
+      <div class="sdetail">
+        <div><div class="snum">07</div><div class="mono muted" style="margin-top:10px">Госорганы</div></div>
+        <div>
+          <h3>Административные споры</h3>
+          <p class="lead">Отношения с государственными органами регулируются процедурой, и большинство дел выигрывается на процедуре. Мы контролируем сроки, форму и содержание — с той стороны, с которой обычно ошибаются.</p>
+          <ul class="cols2">
+            <li>Обжалование предписаний и постановлений</li>
+            <li>Споры о наложении административных штрафов</li>
+            <li>Обжалование отказов в выдаче разрешений и лицензий</li>
+            <li>Представительство в административных органах</li>
+            <li>Обжалование действий и бездействия должностных лиц</li>
+            <li>Восстановление пропущенных сроков обжалования</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sdetail">
+        <div><div class="snum">08</div><div class="mono muted" style="margin-top:10px">Персонал</div></div>
+        <div>
+          <h3>Трудовые отношения</h3>
+          <p class="lead">Кадровые документы становятся важны ровно в тот момент, когда возникает конфликт или проверка. Мы приводим их в порядок заранее и защищаем работодателя в спорах.</p>
+          <ul class="cols2">
+            <li>Разработка трудовых договоров и должностных инструкций</li>
+            <li>Правила внутреннего распорядка и локальные акты</li>
+            <li>Оформление приёма, перевода и увольнения</li>
+            <li>Материальная ответственность работников</li>
+            <li>Сопровождение трудовых споров</li>
+            <li>Проверка кадровой документации перед инспекцией</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sdetail">
+        <div><div class="snum">09</div><div class="mono muted" style="margin-top:10px">Иностранный бизнес</div></div>
+        <div>
+          <h3>Иностранные компании и инвесторы в Узбекистане</h3>
+          <p class="lead">Сопровождаем вход на рынок Узбекистана: от выбора формы присутствия до первого налогового отчёта. Инвестору важно понимать не только процедуру, но и последствия — мы объясняем и то, и другое.</p>
+          <ul class="cols2">
+            <li>Выбор формы присутствия: предприятие, филиал, представительство</li>
+            <li>Регистрация предприятия с иностранными инвестициями</li>
+            <li>Аккредитация представительства иностранной компании</li>
+            <li>Разрешение на привлечение иностранной рабочей силы</li>
+            <li>Постановка на учёт постоянного учреждения нерезидента</li>
+            <li>Валютное регулирование и контроль по контрактам</li>
+            <li>Налоговые последствия структуры входа и вывода прибыли</li>
+            <li>Сопровождение переговоров с местными партнёрами</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="dark on-dark">
+    <div class="wrap">
+      <div class="g2" style="align-items:center">
+        <div>
+          <h2>Не нашли свою ситуацию?</h2>
+          <p class="lead" style="margin-top:18px">Список направлений не описывает всё, с чем к нам приходят. Опишите вопрос — скажем, беремся ли мы за него и что можно сделать.</p>
+        </div>
+        <div><button class="btn" data-go="contacts">Задать вопрос</button></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== О КОМПАНИИ ==================== -->
+<div class="page" id="about">
+  <section class="dark on-dark tight">
+    <div class="wrap">
+      <div class="mono eyebrow">О компании</div>
+      <h1 style="font-size:clamp(30px,4.4vw,50px)">Организация налоговых консультантов<br>и юридических услуг</h1>
+      <p class="lead" style="margin-top:20px;max-width:62ch">TURON — команда, в которой юрист, адвокат, налоговый консультант и аудитор работают над вопросом клиента вместе. Юридическое направление выросло из практики налогового консультирования — и это определяет, как мы смотрим на любую задачу.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="smark"><span class="sec-no">§ 01</span><div>
+        <div class="mono eyebrow">Кто мы</div>
+        <h2>Юристы, выросшие<br>из налоговой практики</h2>
+      </div></div>
+      <div class="g2">
+        <div>
+          <p class="lead">Более тридцати лет мы работаем с тем, что для бизнеса выглядит как две разные темы: налоги и право. На практике это одна тема. Сделка, которая безупречна юридически, может оказаться катастрофой при проверке. Схема, которая экономит налоги, может не пережить суда.</p>
+          <p class="lead" style="margin-top:16px">Поэтому мы не разделяем эти вопросы между специалистами, а собираем их в одну команду и в один договор.</p>
+          <div class="flag"><b>Проверить цифру:</b> «более 30 лет» взято из материалов по бухгалтерскому направлению. Нужно подтвердить, относится ли этот срок к юридической практике.</div>
+        </div>
+        <div>
+          <p class="lead">Мы работаем с компаниями любого размера — от индивидуального предпринимателя до предприятия с иностранным участием, а также с их учредителями и руководителями, когда вопрос касается их лично.</p>
+          <p class="lead" style="margin-top:16px">Наш подход прост: сначала разобраться в ситуации, потом сказать правду о перспективах, и только потом предлагать работу. Мы не берёмся за дело, если не видим для клиента реальной выгоды.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <div class="smark"><span class="sec-no">§ 02</span><div>
+        <div class="mono eyebrow">Принципы</div>
+        <h2>На чём держится наша работа</h2>
+      </div></div>
+      <div class="g3">
+        <div>
+          <h3>Право и налоги вместе</h3>
+          <p class="muted" style="font-size:15.2px">Каждое юридическое решение мы проверяем на налоговые последствия, а каждое налоговое — на правовую защищённость.</p>
+        </div>
+        <div>
+          <h3>Взгляд изнутри системы</h3>
+          <p class="muted" style="font-size:15.2px">Мы знаем логику проверяющих и судебную практику по налоговым делам не по учебникам, а по опыту участия в них.</p>
+        </div>
+        <div>
+          <h3>Прогноз вместо обещаний</h3>
+          <p class="muted" style="font-size:15.2px">Мы не гарантируем результат, который не зависит от нас. Мы даём честную оценку перспектив до подписания договора.</p>
+        </div>
+        <div>
+          <h3>Конфиденциальность по закону</h3>
+          <p class="muted" style="font-size:15.2px">Адвокатская тайна и тайна налогового консультанта — не наше обещание, а требование закона, которое мы соблюдаем буквально.</p>
+        </div>
+        <div>
+          <h3>Всё зафиксировано письменно</h3>
+          <p class="muted" style="font-size:15.2px">Объём работ, сроки, ответственность и порядок расчётов определяются договором до начала работы, а не по ходу дела.</p>
+        </div>
+        <div>
+          <h3>Команда, а не один человек</h3>
+          <p class="muted" style="font-size:15.2px">Над вашим вопросом работает несколько специалистов. Отпуск или занятость одного из них не останавливает дело.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="smark"><span class="sec-no">§ 03</span><div>
+        <div class="mono eyebrow">Почему это важно</div>
+        <h2>Один специалист<br>не закрывает вопрос целиком</h2>
+      </div></div>
+      <div class="g3">
+        <div>
+          <h3>Юрист</h3>
+          <p class="muted" style="font-size:15.2px">Хорошо знает право, но не всегда может просчитать налоговые последствия сделки, которую сам же и оформил.</p>
+        </div>
+        <div>
+          <h3>Аудитор</h3>
+          <p class="muted" style="font-size:15.2px">Отлично разбирается в учёте, но чаще находит ошибки уже в ходе проверки — когда исправить их сложно или невозможно.</p>
+        </div>
+        <div>
+          <h3>Бухгалтер</h3>
+          <p class="muted" style="font-size:15.2px">Отразит операцию в проводках, но не объяснит правовые последствия и не защитит компанию в суде.</p>
+        </div>
+      </div>
+      <div class="pull" style="margin-top:34px">Решение — не выбирать одного из трёх, а получить всех сразу. Именно так устроена наша команда.</div>
+      <div class="flag"><b>Источник:</b> блок целиком основан на вашем файле «Главная страница» (сравнение юриста, аудитора и бухгалтера).</div>
+    </div>
+  </section>
+
+  <section class="dark on-dark">
+    <div class="wrap">
+      <div class="smark"><span class="sec-no">§ 04</span><div>
+        <div class="mono eyebrow">Опыт</div>
+        <h2>Что стоит за нашими рекомендациями</h2>
+      </div></div>
+      <div class="g2">
+        <div>
+          <p class="lead">Мы участвовали в налоговых проверках и спорах с обеих сторон, вели дела в судах и защищали по уголовным делам, связанным с экономической деятельностью. За нашими рекомендациями стоит опыт, накопленный и в кабинетах контролирующих органов, и в зале суда.</p>
+          <p class="lead" style="margin-top:16px">Это позволяет нам говорить с клиентом не о том, «как должно быть по закону», а о том, что произойдёт на практике — и какие действия к этому приведут.</p>
+        </div>
+        <div class="g3" style="grid-template-columns:1fr 1fr">
+          <div><h3 style="font-size:30px;color:#C98B92">30+</h3><p class="muted" style="font-size:14.4px;color:#8A9099">лет практики</p></div>
+          <div><h3 style="font-size:30px;color:#C98B92">—</h3><p class="muted" style="font-size:14.4px;color:#8A9099">выигранных судебных дел</p></div>
+          <div><h3 style="font-size:30px;color:#C98B92">—</h3><p class="muted" style="font-size:14.4px;color:#8A9099">сопровождённых налоговых проверок</p></div>
+          <div><h3 style="font-size:30px;color:#C98B92">—</h3><p class="muted" style="font-size:14.4px;color:#8A9099">специалистов в команде</p></div>
+        </div>
+      </div>
+      <div class="flag"><b>Нужны цифры от клиента:</b> три показателя оставлены пустыми намеренно. У конкурентов они есть (LegalAct: 158 побед в судах, 129 проверок; Askarbekova: 10 000 дел). Без реальных цифр блок лучше не публиковать.</div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== КОМАНДА ==================== -->
+<div class="page" id="team">
+  <section class="dark on-dark tight">
+    <div class="wrap">
+      <div class="mono eyebrow">Команда</div>
+      <h1 style="font-size:clamp(30px,4.4vw,50px)">Люди, которые ведут ваше дело</h1>
+      <p class="lead" style="margin-top:20px;max-width:62ch">В юридических услугах клиент выбирает не компанию, а конкретных людей. Поэтому здесь — те, кто будет заниматься вашим вопросом, с указанием специализации и ответственности каждого.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="team">
+        <div class="tcard">
+          <div class="ph"><span>Фото · портрет</span></div>
+          <h4>Имя Фамилия</h4>
+          <div class="role">Управляющий партнёр</div>
+          <p>Общее руководство практикой, стратегия по ключевым делам, переговоры на уровне первых лиц.</p>
+        </div>
+        <div class="tcard">
+          <div class="ph"><span>Фото · портрет</span></div>
+          <h4>Имя Фамилия</h4>
+          <div class="role">Адвокат · уголовные дела</div>
+          <p>Защита по делам экономической и налоговой направленности на стадии проверки, следствия и в суде.</p>
+        </div>
+        <div class="tcard">
+          <div class="ph"><span>Фото · портрет</span></div>
+          <h4>Имя Фамилия</h4>
+          <div class="role">Адвокат · экономические споры</div>
+          <p>Представительство в экономических и гражданских судах, взыскание задолженности, корпоративные конфликты.</p>
+        </div>
+        <div class="tcard">
+          <div class="ph"><span>Фото · портрет</span></div>
+          <h4>Имя Фамилия</h4>
+          <div class="role">Налоговый консультант</div>
+          <p>Оценка налоговых последствий сделок и решений, сопровождение проверок, возражения на акты.</p>
+        </div>
+        <div class="tcard">
+          <div class="ph"><span>Фото · портрет</span></div>
+          <h4>Имя Фамилия</h4>
+          <div class="role">Юрисконсульт</div>
+          <p>Договорная работа, корпоративные и кадровые документы, текущее сопровождение клиентов.</p>
+        </div>
+        <div class="tcard">
+          <div class="ph"><span>Фото · портрет</span></div>
+          <h4>Имя Фамилия</h4>
+          <div class="role">Аудитор</div>
+          <p>Проверка учёта и документов до того, как их увидят проверяющие; поддержка позиции в налоговых спорах.</p>
+        </div>
+      </div>
+      <div class="flag"><b>Нужно от клиента:</b> имена, должности, квалификация (лицензия адвоката, сертификат налогового консультанта), опыт и фотографии в едином стиле. У Sher Legal и Askarbekova Partner раздел «Команда» — один из самых сильных элементов доверия.</div>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <div class="smark"><span class="sec-no">§ 01</span><div>
+        <div class="mono eyebrow">Как мы распределяем работу</div>
+        <h2>За вашим делом закреплён<br>конкретный человек</h2>
+      </div></div>
+      <div class="g3">
+        <div>
+          <h3>Ответственный специалист</h3>
+          <p class="muted" style="font-size:15.2px">С первого дня у дела есть ведущий юрист. Вы знаете, кому звонить, и не пересказываете ситуацию заново каждому новому сотруднику.</p>
+        </div>
+        <div>
+          <h3>Подключение по необходимости</h3>
+          <p class="muted" style="font-size:15.2px">Когда вопрос выходит за рамки одной специализации, к работе подключается налоговый консультант, аудитор или адвокат — без отдельного договора.</p>
+        </div>
+        <div>
+          <h3>Взаимозаменяемость</h3>
+          <p class="muted" style="font-size:15.2px">Материалы дела ведутся так, чтобы работу можно было продолжить без потери времени, если ведущий специалист недоступен.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== КОНТАКТЫ ==================== -->
+<div class="page" id="contacts">
+  <section class="dark on-dark">
+    <div class="wrap">
+      <div class="mono eyebrow">Обращение</div>
+      <h1 style="font-size:clamp(30px,4.4vw,50px);margin-bottom:34px">Расскажите, что произошло</h1>
+      <div class="form-grid">
+        <div>
+          <p class="lead" style="margin-bottom:26px">Опишите ситуацию в двух-трёх предложениях. Мы перезвоним, зададим уточняющие вопросы и скажем, что можно сделать — до того, как речь зайдёт о договоре.</p>
+          <ul class="contact-list">
+            <li><span class="k">Телефон</span><a class="v" href="tel:+998712001111">+998 71 200 11 11</a></li>
+            <li><span class="k">Электронная почта</span><a class="v" href="mailto:info@example.uz">info@example.uz</a></li>
+            <li><span class="k">Адрес</span><span class="v">г. Ташкент, — укажите адрес офиса</span></li>
+            <li><span class="k">Часы работы</span><span class="v">Пн–Пт, 09:00–18:00</span></li>
+            <li><span class="k">Мессенджеры</span><span class="v">Telegram · WhatsApp — укажите ссылки</span></li>
+          </ul>
+          <div class="flag"><b>Нужно от клиента:</b> реальный телефон, e-mail, точный адрес офиса, ссылки на Telegram/WhatsApp и Instagram, а также карта (Яндекс или Google) для встраивания.</div>
+        </div>
+        <div>
+          <form onsubmit="return submitForm(event)">
+            <div>
+              <label for="f-name">Имя</label>
+              <input id="f-name" placeholder="Как к вам обращаться" required>
+            </div>
+            <div>
+              <label for="f-phone">Телефон</label>
+              <input id="f-phone" type="tel" placeholder="+998 __ ___ __ __" required>
+            </div>
+            <div>
+              <label for="f-topic">Направление</label>
+              <select id="f-topic">
+                <option>Юридическое обслуживание бизнеса</option>
+                <option>Договоры и сделки</option>
+                <option>Корпоративные вопросы</option>
+                <option>Налоговая проверка или спор</option>
+                <option>Судебное дело</option>
+                <option>Уголовное дело</option>
+                <option>Иностранная компания в Узбекистане</option>
+                <option>Другое</option>
+              </select>
+            </div>
+            <div>
+              <label for="f-msg">Ситуация</label>
+              <textarea id="f-msg" placeholder="Коротко: что произошло, есть ли документы, есть ли сроки"></textarea>
+            </div>
+            <label class="consent"><input type="checkbox" required> Согласен на обработку персональных данных в соответствии с законодательством Республики Узбекистан</label>
+            <div><button class="btn" type="submit">Отправить обращение</button></div>
+            <p id="f-ok" style="display:none;color:#C98B92;font-size:14.5px">Обращение отправлено. Мы свяжемся с вами в рабочее время. <span style="color:#8A9099">(демонстрация формы в прототипе)</span></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="smark"><span class="sec-no">§ 01</span><div>
+        <div class="mono eyebrow">Перед звонком</div>
+        <h2>Что подготовить,<br>чтобы разговор был полезным</h2>
+      </div></div>
+      <div class="g3">
+        <div>
+          <h3>Документы</h3>
+          <p class="muted" style="font-size:15.2px">Договор, акт проверки, уведомление, решение суда — то, что уже есть на руках. По документу разговор занимает в разы меньше времени.</p>
+        </div>
+        <div>
+          <h3>Сроки</h3>
+          <p class="muted" style="font-size:15.2px">Дата получения документа определяет, сколько времени осталось на обжалование. Это первое, что мы спросим.</p>
+        </div>
+        <div>
+          <h3>Цель</h3>
+          <p class="muted" style="font-size:15.2px">Чего вы хотите добиться: вернуть деньги, снять доначисление, сохранить актив, закрыть вопрос без огласки. От цели зависит стратегия.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h5>TURON</h5>
+        <p style="font-size:14.4px;max-width:34ch">Организация налоговых консультантов и юридических услуг. Юридическое сопровождение бизнеса, налоговые споры, суд и защита.</p>
+      </div>
+      <div>
+        <h5>Разделы</h5>
+        <a href="#" data-go="home">Главная</a>
+        <a href="#" data-go="services">Услуги</a>
+        <a href="#" data-go="about">О компании</a>
+        <a href="#" data-go="team">Команда</a>
+        <a href="#" data-go="contacts">Контакты</a>
+      </div>
+      <div>
+        <h5>Направления</h5>
+        <a href="#" data-go="services">Обслуживание бизнеса</a>
+        <a href="#" data-go="services">Налоговые споры</a>
+        <a href="#" data-go="services">Суд и взыскание</a>
+        <a href="#" data-go="services">Уголовная защита</a>
+        <a href="#" data-go="services">Иностранные компании</a>
+      </div>
+      <div>
+        <h5>Контакты</h5>
+        <a href="tel:+998712001111">+998 71 200 11 11</a>
+        <a href="mailto:info@example.uz">info@example.uz</a>
+        <p style="font-size:14.4px">г. Ташкент, — адрес уточняется</p>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>© 2026 TURON. Все права защищены.</span>
+      <span>Прототип сайта. Тексты подлежат согласованию с клиентом.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="flagbar"><button id="flagbtn">Показать пометки</button></div>
+
+<script>
+const pages = document.querySelectorAll('.page');
+const navBtns = document.querySelectorAll('nav button[data-go]');
+
+function go(id){
+  pages.forEach(p => p.classList.toggle('active', p.id === id));
+  navBtns.forEach(b => b.classList.toggle('active', b.dataset.go === id));
+  document.getElementById('nav').classList.remove('open');
+  window.scrollTo({top:0, behavior:'instant' in window ? 'auto' : 'auto'});
+  observeReveals();
+}
+
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-go]');
+  if(!t) return;
+  e.preventDefault();
+  go(t.dataset.go);
+});
+
+document.getElementById('burger').addEventListener('click', () => {
+  document.getElementById('nav').classList.toggle('open');
+});
+
+document.getElementById('flagbtn').addEventListener('click', function(){
+  document.body.classList.toggle('flags');
+  this.textContent = document.body.classList.contains('flags') ? 'Скрыть пометки' : 'Показать пометки';
+});
+
+function submitForm(e){
+  e.preventDefault();
+  document.getElementById('f-ok').style.display = 'block';
+  return false;
+}
+
+/* scroll reveal */
+let io;
+function observeReveals(){
+  const els = document.querySelectorAll('.page.active .wrap > *:not(.rv-done)');
+  if(!io){
+    io = new IntersectionObserver(entries => {
+      entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {threshold:.08, rootMargin:'0px 0px -40px 0px'});
+  }
+  els.forEach(el => { el.classList.add('rv'); io.observe(el); });
+}
+observeReveals();
+</script>
+</body>
+</html>
