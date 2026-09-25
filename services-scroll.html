@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TURON — Что мы делаем</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#093333;
+  --teal-2:#0E3D3D;
+  --gold:#C2A05A;
+  --gold-hi:#D4B576;
+  --gold-ink:#8C6D2F;
+  --paper:#F6F3EC;
+  --paper-2:#EDE8DE;
+  --card:#FFFFFF;
+  --ink:#0B1A1A;
+  --ink-2:#4A5654;
+  --ink-3:#8A9492;
+  --line:rgba(11,26,26,.08);
+  --line-2:rgba(11,26,26,.14);
+  --r-lg:24px;
+  --r-md:16px;
+  --maxw:1240px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Onest',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.01em;line-height:1.05}
+em{font-style:italic}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+/* eyebrow — small square marker, as in reference */
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:var(--ink-2);letter-spacing:.01em}
+.eyebrow::before{content:'';width:7px;height:7px;background:var(--gold);border-radius:1px}
+.on-dark .eyebrow{color:#B9C4C2}
+
+/* pill buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 22px;border-radius:100px;font-family:inherit;font-size:14px;font-weight:600;letter-spacing:-.01em;border:0;cursor:pointer;transition:background .3s var(--ease),color .3s var(--ease),transform .3s var(--ease)}
+.btn-dark{background:var(--teal);color:var(--paper)}
+.btn-dark:hover{background:var(--teal-2)}
+.btn-gold{background:var(--gold);color:var(--teal)}
+.btn-gold:hover{background:var(--gold-hi)}
+.btn-light{background:var(--paper);color:var(--teal)}
+.btn-light:hover{background:#fff}
+.btn .arr{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.14);margin-right:-12px;transition:transform .3s var(--ease)}
+.btn-gold .arr,.btn-light .arr{background:rgba(9,51,51,.1)}
+.btn:hover .arr{transform:translateX(3px)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ---------- header ---------- */
+header{position:fixed;top:16px;left:0;right:0;z-index:50;padding:0 16px}
+.bar{max-width:var(--maxw);margin:0 auto;height:60px;display:flex;align-items:center;gap:24px;padding:0 8px 0 24px;border-radius:100px;background:rgba(246,243,236,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line)}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand b{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;letter-spacing:.2em}
+.brand span{font-size:11px;color:var(--ink-3)}
+.bar nav{margin-left:auto;display:flex;gap:4px}
+.bar nav a{font-size:14px;font-weight:500;color:var(--ink-2);padding:8px 14px;border-radius:100px;transition:.25s}
+.bar nav a:hover{color:var(--ink);background:rgba(11,26,26,.05)}
+.bar nav a.on{color:var(--ink);background:rgba(11,26,26,.06)}
+
+/* ---------- intro ---------- */
+.intro{padding:170px 0 90px;text-align:center}
+.intro h1{font-size:clamp(44px,6.4vw,84px);margin:22px auto 22px;max-width:14ch}
+.intro h1 em{color:var(--gold-ink)}
+.intro p{max-width:56ch;margin:0 auto;color:var(--ink-2);font-size:17px}
+
+/* ---------- sticky showcase ---------- */
+.showcase{padding:0 0 140px}
+.sc-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+
+.visual{
+  --h:min(76vh,680px);
+  position:sticky;top:calc(50vh - var(--h)/2 + 20px);height:var(--h);
+  background:var(--card);border-radius:var(--r-lg);padding:8px;
+  box-shadow:0 1px 0 var(--line),0 30px 60px -30px rgba(9,51,51,.25);
+}
+.frame{position:relative;width:100%;height:100%;border-radius:var(--r-md);overflow:hidden;background:var(--teal)}
+.frame img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transform:scale(1.08);filter:saturate(.82) contrast(1.03);
+  transition:opacity 1s var(--ease),transform 1.6s var(--ease);
+}
+.frame img.on{opacity:1;transform:scale(1)}
+.frame::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,51,51,0) 45%,rgba(9,51,51,.72));pointer-events:none}
+
+.cap{position:absolute;left:22px;right:22px;bottom:22px;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;color:var(--paper)}
+.cap-txt{overflow:hidden;height:40px;position:relative;flex:1}
+.cap-txt span{position:absolute;left:0;bottom:0;font-family:'Cormorant Garamond',serif;font-size:32px;line-height:1.2;white-space:nowrap;opacity:0;transform:translateY(100%);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.cap-txt span.on{opacity:1;transform:none}
+.cap-txt span.out{opacity:0;transform:translateY(-100%)}
+.count{font-size:13px;font-weight:500;padding:7px 14px;border-radius:100px;background:rgba(246,243,236,.14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(246,243,236,.2);white-space:nowrap;font-variant-numeric:tabular-nums}
+.count b{color:var(--gold);font-weight:600}
+
+.prog{position:absolute;top:22px;left:22px;right:22px;z-index:2;display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.prog i{height:2px;border-radius:2px;background:rgba(246,243,236,.25);overflow:hidden;position:relative}
+.prog i::after{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.prog i.done::after{transform:scaleX(1)}
+
+/* text column */
+.items{display:flex;flex-direction:column;gap:20px;padding:6vh 0}
+.item{
+  min-height:62vh;display:flex;flex-direction:column;justify-content:center;
+  background:var(--card);border-radius:var(--r-lg);padding:48px 46px;
+  border:1px solid var(--line);
+  opacity:.38;transform:translateY(0) scale(.985);
+  transition:opacity .6s var(--ease),transform .6s var(--ease),box-shadow .6s var(--ease);
+}
+.item.on{opacity:1;transform:none;box-shadow:0 30px 60px -36px rgba(9,51,51,.28)}
+.idx{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.idx .n{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--gold-ink);line-height:1}
+.idx .t{font-size:12px;font-weight:500;color:var(--ink-3);padding:5px 12px;border-radius:100px;background:var(--paper)}
+.item h3{font-size:clamp(32px,3.2vw,44px);margin-bottom:16px}
+.item p{color:var(--ink-2);font-size:16.5px;max-width:48ch}
+.item ul{list-style:none;margin-top:28px;border-top:1px solid var(--line)}
+.item li{display:flex;gap:14px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--ink)}
+.item li::before{content:'';flex:0 0 6px;height:6px;border-radius:50%;background:var(--gold);transform:translateY(-2px)}
+.item .inline-img{display:none}
+
+.sc-foot{display:flex;justify-content:center;margin-top:64px}
+
+/* ---------- cta ---------- */
+.cta{padding:0 16px 16px}
+.cta-in{max-width:calc(var(--maxw) + 64px);margin:0 auto;border-radius:32px;background:var(--teal);color:var(--paper);padding:120px 28px;text-align:center;position:relative;overflow:hidden}
+.cta-in::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 50% 0%,rgba(194,160,90,.18),transparent 70%)}
+.cta-in>*{position:relative}
+.cta h2{font-size:clamp(38px,5vw,64px);margin:20px auto 18px;max-width:16ch;color:#FBF8F1}
+.cta h2 em{color:var(--gold)}
+.cta p{max-width:52ch;margin:0 auto 34px;color:#B9C4C2}
+
+footer{padding:28px 0 36px}
+.fb{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink-3)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  .bar nav{display:none}
+  .bar .btn{margin-left:auto}
+  .intro{padding:130px 0 56px}
+  .sc-grid{grid-template-columns:1fr;gap:0}
+  .visual{display:none}
+  .items{padding:0;gap:16px}
+  .item{min-height:0;opacity:1;transform:none;padding:10px 10px 30px}
+  .item .inline-img{display:block;border-radius:var(--r-md);aspect-ratio:4/3;object-fit:cover;width:100%;margin-bottom:26px;filter:saturate(.82)}
+  .item .idx,.item h3,.item p,.item ul{margin-left:16px;margin-right:16px}
+  .showcase{padding-bottom:90px}
+  .cta-in{padding:84px 22px;border-radius:24px}
+}
+@media(max-width:560px){
+  .wrap{padding:0 16px}
+  .brand span{display:none}
+  .bar{padding-left:18px}
+  .item h3{font-size:30px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="brand" href="index.html"><b>TURON</b><span>Юридические услуги</span></a>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="services-scroll.html" class="on">Услуги</a>
+      <a href="index.html">О компании</a>
+      <a href="index.html">Контакты</a>
+    </nav>
+    <a class="btn btn-dark" href="tel:+998712001111">+998 71 200 11 11 <span class="arr">→</span></a>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <div class="eyebrow rv">Направления работы</div>
+    <h1 class="rv">Что мы <em>делаем</em></h1>
+  </div>
+</section>
+
+<section class="showcase">
+  <div class="wrap sc-grid">
+
+    <div class="visual" aria-hidden="true">
+      <div class="frame">
+        <img class="on" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1200&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1436450412740-6b988f486c6b?auto=format&fit=crop&w=1200&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80" alt="">
+        <div class="prog"><i class="done"></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="cap">
+          <div class="cap-txt">
+            <span class="on">Сопровождение</span>
+            <span>Договоры</span>
+            <span>Корпоративное право</span>
+            <span>Налоговые споры</span>
+            <span>Суд</span>
+            <span>Защита</span>
+          </div>
+          <div class="count"><b id="cur">01</b> / 06</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="items">
+      <article class="item on">
+        <img class="inline-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=75" alt="Работа с документами за ноутбуком" loading="lazy">
+        <div class="idx"><span class="n">01</span><span class="t">Сопровождение</span></div>
+        <h3>Юридическое обслуживание бизнеса</h3>
+        <p>Внешний юридический отдел компании: постоянная поддержка вместо разовых обращений.</p>
+        <ul>
+          <li>Консультации по текущим вопросам</li>
+          <li>Правовая экспертиза решений руководства</li>
+          <li>Подготовка и ведение документооборота</li>
+          <li>Взаимодействие с государственными органами</li>
+        </ul>
+      </article>
+
+      <article class="item">
+        <img class="inline-img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=75" alt="Подписание договора" loading="lazy">
+        <div class="idx"><span class="n">02</span><span class="t">Договоры</span></div>
+        <h3>Договорная работа и сделки</h3>
+        <p>Договор — это распределение рисков и налоговых последствий, а не формальность.</p>
+        <ul>
+          <li>Разработка договоров под вашу деятельность</li>
+          <li>Правовая экспертиза договоров контрагентов</li>
+          <li>Проверка контрагента до подписания</li>
+          <li>Претензионная работа и взыскание долгов</li>
+        </ul>
+      </article>
+
+      <article class="item">
+        <img class="inline-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=75" alt="Деловые здания" loading="lazy">
+        <div class="idx"><span class="n">03</span><span class="t">Корпоративное право</span></div>
+        <h3>Структура и жизнь компании</h3>
+        <p>От регистрации до реорганизации — с учётом налоговой стороны каждого шага.</p>
+        <ul>
+          <li>Регистрация ООО, ЧП, СП, ИП</li>
+          <li>Изменение уставного фонда и состава учредителей</li>
+          <li>Реорганизация, выделение, присоединение</li>
+          <li>Ликвидация предприятия</li>
+        </ul>
+      </article>
+
+      <article class="item">
+        <img class="inline-img" src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=900&q=75" alt="Налоговые документы и калькулятор" loading="lazy">
+        <div class="idx"><span class="n">04</span><span class="t">Налоговые споры</span></div>
+        <h3>Проверки и налоговые споры</h3>
+        <p>Направление, в котором наше происхождение из налогового консультирования даёт прямое преимущество.</p>
+        <ul>
+          <li>Сопровождение налоговых проверок</li>
+          <li>Возражения на акты проверок</li>
+          <li>Обжалование доначислений и штрафов</li>
+          <li>Защита в суде по налоговым спорам</li>
+        </ul>
+      </article>
+
+      <article class="item">
+        <img class="inline-img" src="https://images.unsplash.com/photo-1436450412740-6b988f486c6b?auto=format&fit=crop&w=900&q=75" alt="Колонны здания суда" loading="lazy">
+        <div class="idx"><span class="n">05</span><span class="t">Суд</span></div>
+        <h3>Представительство в судах</h3>
+        <p>Экономические, гражданские и административные дела — на всех инстанциях.</p>
+        <ul>
+          <li>Досудебное урегулирование и переговоры</li>
+          <li>Подготовка позиции и доказательной базы</li>
+          <li>Ведение дела в первой инстанции и апелляции</li>
+          <li>Исполнение судебных решений</li>
+        </ul>
+      </article>
+
+      <article class="item">
+        <img class="inline-img" src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=900&q=75" alt="Статуя Фемиды" loading="lazy">
+        <div class="idx"><span class="n">06</span><span class="t">Защита</span></div>
+        <h3>Защита по уголовным делам</h3>
+        <p>Экономические и налоговые составы, где ошибка на первом допросе определяет весь исход.</p>
+        <ul>
+          <li>Защита на стадии проверки и следствия</li>
+          <li>Присутствие адвоката при допросах</li>
+          <li>Обжалование мер процессуального принуждения</li>
+          <li>Защита в суде и в апелляции</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+
+  <div class="sc-foot"><a class="btn btn-dark" href="index.html">Все направления и подробности <span class="arr">→</span></a></div>
+</section>
+
+<section class="cta">
+  <div class="cta-in on-dark">
+    <div class="eyebrow rv">Обращение</div>
+    <h2 class="rv">Опишите ситуацию — <em>скажем, есть ли решение</em></h2>
+    <p class="rv">Первый разговор ни к чему не обязывает. Мы либо предложим план действий, либо честно скажем, что правовой перспективы нет.</p>
+    <a class="btn btn-gold rv" href="index.html">Перейти к форме обращения <span class="arr">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fb">
+    <span>© 2026 TURON. Все права защищены.</span>
+    <span>Прототип сайта. Тексты подлежат согласованию с клиентом.</span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const items = [...document.querySelectorAll('.item')];
+  const imgs  = [...document.querySelectorAll('.frame img')];
+  const caps  = [...document.querySelectorAll('.cap-txt span')];
+  const bars  = [...document.querySelectorAll('.prog i')];
+  const cur   = document.getElementById('cur');
+  let active = 0;
+
+  function setActive(i){
+    if(i === active) return;
+    const prev = active;
+    active = i;
+    items.forEach((el,k) => el.classList.toggle('on', k === i));
+    imgs.forEach((el,k)  => el.classList.toggle('on', k === i));
+    bars.forEach((el,k)  => el.classList.toggle('done', k <= i));
+    caps.forEach((el,k)  => {
+      el.classList.remove('out');
+      el.classList.toggle('on', k === i);
+    });
+    caps[prev].classList.add('out');
+    cur.textContent = String(i + 1).padStart(2,'0');
+  }
+
+  // the item crossing the middle of the viewport becomes active
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => { if(en.isIntersecting) setActive(items.indexOf(en.target)); });
+  }, {rootMargin:'-50% 0px -50% 0px'});
+  items.forEach(el => io.observe(el));
+
+  // soft reveal for intro and cta
+  const rv = new IntersectionObserver(entries => {
+    entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add('in'); rv.unobserve(en.target); } });
+  }, {threshold:.15});
+  document.querySelectorAll('.rv').forEach((el,k) => { el.style.transitionDelay = (k % 4) * 80 + 'ms'; rv.observe(el); });
+})();
+</script>
+</body>
+</html>
